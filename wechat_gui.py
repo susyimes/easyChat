@@ -1,10 +1,12 @@
 import sys
 import time
-
+import requests
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
+
+from remote_manager import app_net
 from ui_auto_wechat import WeChat
 from functools import partial
 
@@ -233,6 +235,16 @@ class WechatGUI(QWidget):
 
         # 发送按钮响应事件
         def send_msg(gap=None, st=None, ed=None):
+
+            # response = requests.get('http://localhost:5000/api')
+            # json = response.json()
+            # for data in json[
+            #     'Data']:
+            #     print('联系人：', data['contact'])
+            #     print('对话内容：', data['content'])
+            #     print('时间：', data['time'])
+
+
             # 如果未定义范围的开头和结尾，则默认发送全部信息
             if st is None:
                 st = 1
